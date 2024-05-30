@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjetoWebAppCsharp.Models;
 using ProjetoWebAppCsharp.Repositorio;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjetoWebAppCsharp.Controllers
 {
@@ -37,21 +38,66 @@ namespace ProjetoWebAppCsharp.Controllers
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {
-            _contatoRepositorio.Adicionar(contato);
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _contatoRepositorio.Adicionar(contato);
+                    TempData["MensagemSucesso"] = "Contato cadastrado com sucesso";
+                    return RedirectToAction("Index");
+                }
+
+                return View(contato);
+            }
+            catch(Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro, tente novamente. Detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
         public IActionResult Alterar(ContatoModel contato)
         {
-            _contatoRepositorio.Atualizar(contato);
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _contatoRepositorio.Atualizar(contato);
+                    TempData["MensagemSucesso"] = "Contato editado com sucesso";
+                    return RedirectToAction("Index");
+                }
+                return View("Editar", contato);
+            }
+            catch(Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro, tente novamente. Detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         public IActionResult Apagar(int id)
         {
-            _contatoRepositorio.Apagar(id);
-            return RedirectToAction("Index");
+            try
+            {
+                bool apagado = _contatoRepositorio.Apagar(id);
+
+                if (apagado)
+                {
+                    TempData["MensagemSucesso"] = "Contato apagado com sucesso";
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Ocorreu um erro ao tentar apagar o contato";
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro ao tentar apagar o contato. Detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
     }
 }

@@ -9,27 +9,37 @@
         <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
     </div>
     <br />
+
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-sucess" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close"> X </button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close"> X </button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <br />
+
     <h1 class="display-4">Listagem de Contatos</h1>
     
-    <table class="table">
+    <table class="table" id="table-contatos">
         <thead>
             <tr>
                 <th scope="col">Id</th>
-@*                 <th scope="col">Código</th>
-                <th scope="col">Tipo - PF/PJ</th>
-                <th scope="col">CPF/CNPJ</th>
-                <th scope="col">RG/IE</th> *@
-                <th scope="col">Nome Social</th>
-@*                 <th scope="col">Nome Abreviado</th>
-                <th scope="col">Endereço</th> *@
+                <th scope="col">Nome</th>
                 <th scope="col">Email</th>
                 <th scope="col">Celular</th>
-@*                 <th scope="col">Inclusão</th>
-                <th scope="col">Alteração</th> *@
             </tr>
         </thead>
         <tbody>
-
             @if(Model != null && Model.Any())
             {
                 foreach(ContatoModel contato in Model)
@@ -48,7 +58,6 @@
                     </tr>
                 }
             }
-
         </tbody>
     </table>
 </div>
