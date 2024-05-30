@@ -13,10 +13,5 @@ namespace ProjetoWebAppCsharp.Data
 
         public DbSet<ContatoModel> Contatos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-IR7B107\\SQLCASSIO; Database=DB_SistemaContatos; User Id=sa; Password=123456; TrustServerCertificate=True");
-            base.OnConfiguring(optionsBuilder);
-        }
     }
 }
