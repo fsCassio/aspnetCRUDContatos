@@ -6,15 +6,88 @@
 <div class="text-center">
     <h1 class="display-4">Editar Contato</h1>
 </div>
-+
+
 <form asp-controller="Contato" asp-action="Alterar" method="post">
 
     <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
+        <label for="codigo">Código:</label>
+        <input type="text" asp-for="Codigo" class="form-control" placeholder="Digite o código">
+        @Html.ValidationMessageFor(x => x.Codigo)
+    </div>
+
+    <div class="form-group">
+        <label for="tipo">Tipo (PF ou PJ):</label>
+        <input type="text" asp-for="Tipo" class="form-control" placeholder="Digite se é PF ou PJ">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+
+    <div class="form-group">
+        <label for="cpfcnpj">CPF/CNPJ:</label>
+        <input type="text" asp-for="CpfCnpj" class="form-control" placeholder="Digite o o CPF/CNPJ">
+        @Html.ValidationMessageFor(x => x.CpfCnpj)
+    </div>
+
+    <div class="form-group">
+        <label for="rgie">RG/IE:</label>
+        <input type="text" asp-for="RgIe" class="form-control" placeholder="Digite o RG/IE">
+        @Html.ValidationMessageFor(x => x.RgIe)
+    </div>
+
+    <div class="form-group">
         <label for="nome">Nome:</label>
         <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome">
         @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+
+    <div class="form-group">
+        <label for="nomeabreviado">Nome Abreviado/Fantasia:</label>
+        <input type="text" asp-for="NomeAbreviado" class="form-control" placeholder="Digite o nome abreviado/fantasia">
+        @Html.ValidationMessageFor(x => x.NomeAbreviado)
+    </div>
+
+    <div class="form-group">
+        <label>Endereço completo:</label>
+        <label for="cep">CEP:</label>
+        <input type="text" asp-for="Cep" class="form-control" placeholder="Digite o CEP">
+        @Html.ValidationMessageFor(x => x.Cep)
+    </div>
+
+    <div class="form-group">
+        <label for="logradouro">Logradouro:</label>
+        <input type="text" asp-for="Logradouro" class="form-control" placeholder="Digite o logradouro">
+        @Html.ValidationMessageFor(x => x.Logradouro)
+    </div>
+
+    <div class="form-group">
+        <label for="numero">Numero:</label>
+        <input type="text" asp-for="Numero" class="form-control" placeholder="Digite o numero">
+        @Html.ValidationMessageFor(x => x.Numero)
+    </div>
+
+    <div class="form-group">
+        <label for="complemento">Complemento:</label>
+        <input type="text" asp-for="Complemento" class="form-control" placeholder="Digite o complemento">
+        @Html.ValidationMessageFor(x => x.Complemento)
+    </div>
+
+    <div class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
+        @Html.ValidationMessageFor(x => x.Bairro)
+    </div>
+
+    <div class="form-group">
+        <label for="municipio">Municipio:</label>
+        <input type="text" asp-for="Municipio" class="form-control" placeholder="Digite o municipio">
+        @Html.ValidationMessageFor(x => x.Municipio)
+    </div>
+
+    <div class="form-group">
+        <label for="unidadefederativa">UnidadeFederativa:</label>
+        <input type="text" asp-for="UnidadeFederativa" class="form-control" placeholder="Digite a unidade federativa">
+        @Html.ValidationMessageFor(x => x.UnidadeFederativa)
     </div>
 
     <div class="form-group">

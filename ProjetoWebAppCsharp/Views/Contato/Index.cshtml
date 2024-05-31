@@ -31,12 +31,28 @@
     <h1 class="display-4">Listagem de Contatos</h1>
     
     <table class="table" id="table-contatos">
+
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Nome</th>
+                <th scope="col">Código</th>
+                <th scope="col">Tipo (PF/PJ)</th>
+                <th scope="col">CPF/CNPJ</th>
+                <th scope="col">RG/IE</th>
+                <th scope="col">Nome/Razão Social</th>
+                <th scope="col">Nome Abreviado/Nome Fantasia</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Logradouro</th>
+                <th scope="col">Número</th>
+                <th scope="col">Complemento</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Município</th>
+                <th scope="col">Unidade Federativa</th>
                 <th scope="col">Email</th>
                 <th scope="col">Celular</th>
+                <th scope="col">Inclusão</th>
+                <th scope="col">Alteração</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -45,10 +61,24 @@
                 foreach(ContatoModel contato in Model)
                 {
                     <tr>
-                        <th scope="row">@contato.Id</th>
+                        <td scope="row">@contato.Id</td>
+                        <td>@contato.Codigo</td>
+                        <td>@contato.Tipo</td>
+                        <td>@contato.CpfCnpj</td>
+                        <td>@contato.RgIe</td>
                         <td>@contato.Nome</td>
+                        <td>@contato.NomeAbreviado</td>
+                        <td>@contato.Cep</td>
+                        <td>@contato.Logradouro</td>
+                        <td>@contato.Numero</td>
+                        <td>@contato.Complemento</td>
+                        <td>@contato.Bairro</td>
+                        <td>@contato.Municipio</td>
+                        <td>@contato.UnidadeFederativa</td>
                         <td>@contato.Email</td>
                         <td>@contato.Celular</td>
+                        <td>@contato.Inclusao</td>
+                        <td>@contato.Alteracao</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a role="button" class="btn btn-primary" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a>

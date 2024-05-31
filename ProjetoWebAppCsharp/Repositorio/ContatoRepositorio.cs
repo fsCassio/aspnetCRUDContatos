@@ -25,6 +25,7 @@ namespace ProjetoWebAppCsharp.Repositorio
         // inserçao no banco de dados
         public ContatoModel Adicionar(ContatoModel contato)
         {
+            contato.Inclusao = DateTime.Now;
             _bancoContext.Contatos.Add(contato);
             _bancoContext.SaveChanges();
             return contato;
@@ -36,9 +37,22 @@ namespace ProjetoWebAppCsharp.Repositorio
 
             if (contatoDB == null) throw new Exception("Ocorreu um erro na atualização do contato!");
 
+            contatoDB.Codigo = contato.Codigo;
+            contatoDB.Tipo = contato.Tipo;
+            contatoDB.CpfCnpj = contato.CpfCnpj;
+            contatoDB.RgIe = contato.RgIe;
             contatoDB.Nome = contato.Nome;
+            contatoDB.NomeAbreviado = contato.NomeAbreviado;
+            contatoDB.Cep = contato.Cep;
+            contatoDB.Logradouro = contato.Logradouro;
+            contatoDB.Numero = contato.Numero;
+            contatoDB.Complemento = contato.Complemento;
+            contatoDB.Bairro = contato.Bairro;
+            contatoDB.Municipio = contato.Municipio;
+            contatoDB.UnidadeFederativa = contato.UnidadeFederativa;
             contatoDB.Email = contato.Email;
             contatoDB.Celular = contato.Celular;
+            contatoDB.Alteracao = DateTime.Now;
 
             _bancoContext.Contatos.Update(contatoDB);
             _bancoContext.SaveChanges();

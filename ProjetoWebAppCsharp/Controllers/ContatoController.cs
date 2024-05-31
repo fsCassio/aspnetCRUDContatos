@@ -18,6 +18,26 @@ namespace ProjetoWebAppCsharp.Controllers
             return View(contatos);
         }
 
+
+        [HttpGet("/Contato/ObterInformacoesCNPJ/{cnpj}")]
+        public async Task<IActionResult> ObterInformacoesCNPJ(string cnpj)
+        {
+            if (cnpj == null) return Ok();
+            try
+            {
+                HttpClient cliente = new HttpClient();
+
+                string resultado = await cliente.GetStringAsync($"https://receitaws.com.br/v1/cnpj/{cnpj}");
+
+                return Ok(resultado);
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public IActionResult Criar()
         {
             return View();
@@ -49,7 +69,7 @@ namespace ProjetoWebAppCsharp.Controllers
 
                 return View(contato);
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro, tente novamente. Detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
@@ -69,7 +89,7 @@ namespace ProjetoWebAppCsharp.Controllers
                 }
                 return View("Editar", contato);
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Ocorreu um erro, tente novamente. Detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
