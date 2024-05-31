@@ -9,7 +9,7 @@ namespace ProjetoWebAppCsharp.Models
         [Required(ErrorMessage = "Digite o código.")]
         public string Codigo { get; set; }
 
-        [Required(ErrorMessage = "Digite o tipo se é PF ou PJ.")]
+        [Required(ErrorMessage = "Verifique o tipo se é PF ou PJ.")]
         public string Tipo { get; set; }
 
         [Required(ErrorMessage = "Digite o seu CPF ou CNPJ.")]

@@ -33,3 +33,13 @@ body {
     width: 30px;
     height: 31px;
 }
+
+.alert-sucess-color {
+    color: #FBFBFB;
+    background-color: #14A44D;
+}
+
+.alert-danger-color {
+    color: #FBFBFB;
+    background-color: #DC4C64;
+}

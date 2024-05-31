@@ -16,91 +16,111 @@
         <input type="text" asp-for="Codigo" class="form-control" placeholder="Digite o código">
         @Html.ValidationMessageFor(x => x.Codigo)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="tipo">Tipo (PF ou PJ):</label>
-        <input type="text" asp-for="Tipo" class="form-control" placeholder="Digite se é PF ou PJ">
-        @Html.ValidationMessageFor(x => x.Nome)
+        <select name="Tipo" asp-for="Tipo" class="form-control">
+            <option value="PF">PF</option>
+            <option value="PJ">PJ</option>
+        </select>
+        @Html.ValidationMessageFor(x => x.Tipo)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="cpfcnpj">CPF/CNPJ:</label>
         <input type="text" asp-for="CpfCnpj" class="form-control" placeholder="Digite o o CPF/CNPJ">
         @Html.ValidationMessageFor(x => x.CpfCnpj)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="rgie">RG/IE:</label>
         <input type="text" asp-for="RgIe" class="form-control" placeholder="Digite o RG/IE">
         @Html.ValidationMessageFor(x => x.RgIe)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="nome">Nome:</label>
         <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome">
         @Html.ValidationMessageFor(x => x.Nome)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="nomeabreviado">Nome Abreviado/Fantasia:</label>
         <input type="text" asp-for="NomeAbreviado" class="form-control" placeholder="Digite o nome abreviado/fantasia">
         @Html.ValidationMessageFor(x => x.NomeAbreviado)
     </div>
+    <br />
 
     <div class="form-group">
-        <label>Endereço completo:</label>
+        <h2>Endereço completo:</h2>
+        <br />
         <label for="cep">CEP:</label>
-        <input type="text" asp-for="Cep" class="form-control" placeholder="Digite o CEP">
+        <input type="text" asp-for="Cep" id="cep" class="form-control" placeholder="Digite o CEP">
         @Html.ValidationMessageFor(x => x.Cep)
     </div>
+    <br />
+
 
     <div class="form-group">
         <label for="logradouro">Logradouro:</label>
         <input type="text" asp-for="Logradouro" class="form-control" placeholder="Digite o logradouro">
         @Html.ValidationMessageFor(x => x.Logradouro)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="numero">Numero:</label>
         <input type="text" asp-for="Numero" class="form-control" placeholder="Digite o numero">
         @Html.ValidationMessageFor(x => x.Numero)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="complemento">Complemento:</label>
         <input type="text" asp-for="Complemento" class="form-control" placeholder="Digite o complemento">
         @Html.ValidationMessageFor(x => x.Complemento)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="bairro">Bairro:</label>
         <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
         @Html.ValidationMessageFor(x => x.Bairro)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="municipio">Municipio:</label>
         <input type="text" asp-for="Municipio" class="form-control" placeholder="Digite o municipio">
         @Html.ValidationMessageFor(x => x.Municipio)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="unidadefederativa">UnidadeFederativa:</label>
         <input type="text" asp-for="UnidadeFederativa" class="form-control" placeholder="Digite a unidade federativa">
         @Html.ValidationMessageFor(x => x.UnidadeFederativa)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="email">Email:</label>
         <input type="text" asp-for="Email" class="form-control" placeholder="Digite o email">
         @Html.ValidationMessageFor(x => x.Email)
     </div>
+    <br />
 
     <div class="form-group">
         <label for="celular">Celular:</label>
         <input type="text" asp-for="Celular" class="form-control" placeholder="Digite o celular">
         @Html.ValidationMessageFor(x => x.Celular)
     </div>
+    <br />
 
     <button type="submit" class="btn btn-primary btn-block">Alterar</button>
     <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>

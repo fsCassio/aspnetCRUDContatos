@@ -50,7 +50,6 @@ $("#cep").on("blur", function () {
 });
 
 $("#CpfCnpj").on("blur", function () {
-    debugger;
     let cnpj = this.value;
     let tipoPessoa = $("#Tipo").val();
     
